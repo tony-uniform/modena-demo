@@ -1,0 +1,63 @@
+{
+  "name": "@uniformdev/modena",
+  "version": "14.2.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev:next": "next dev -p 4120",
+    "dev": "run-s generate:intents dev:next",
+    "build": "run-s generate build:next",
+    "build:next": "next build",
+    "export": "next export",
+    "generate": "run-p generate:intents",
+    "generate:intents": "uniform optimize manifest download --output ./lib/intentManifest.json",
+    "start": "next start -p 4120",
+    "format": "prettier --write \"./**/*.{js,ts,tsx}\"",
+    "pull:contentful-bigcommerce": "run-p pull:components:contentful-bigcommerce pull:compositions:contentful-bigcommerce",
+    "push:contentful-bigcommerce": "run-s push:components:contentful-bigcommerce push:compositions:contentful-bigcommerce",
+    "pull:components:contentful-bigcommerce": "uniform presentation component pull ./data/contentful-bigcommerce/components",
+    "pull:compositions:contentful-bigcommerce": "uniform presentation composition pull ./data/contentful-bigcommerce/compositions",
+    "push:components:contentful-bigcommerce": "uniform presentation component push ./data/contentful-bigcommerce/components",
+    "push:compositions:contentful-bigcommerce": "uniform presentation composition push ./data/contentful-bigcommerce/compositions"
+  },
+  "dependencies": {
+    "@analytics/google-analytics": "^0.5.2",
+    "@uniformdev/canvas": "14.2.0",
+    "@uniformdev/canvas-bigcommerce": "14.2.0",
+    "@uniformdev/canvas-contentful": "14.2.0",
+    "@uniformdev/canvas-react": "14.2.0",
+    "@uniformdev/optimize-tracker": "14.2.0",
+    "@uniformdev/optimize-tracker-analytics": "14.2.0",
+    "@uniformdev/optimize-tracker-browser": "14.2.0",
+    "@uniformdev/optimize-tracker-common": "14.2.0",
+    "@uniformdev/optimize-tracker-react": "14.2.0",
+    "analytics": "^0.7.5",
+    "contentful": "^9.1.12",
+    "next": "^12.1.0",
+    "nookies": "^2.5.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@contentful/rich-text-html-renderer": "^15.1.0",
+    "@types/node": "^15.0.1",
+    "@types/react": "^17.0.4",
+    "@uniformdev/cli": "14.2.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.29.0",
+    "eslint-config-next": "^11.0.1",
+    "modern-normalize": "^1.1.0",
+    "ncp": "^2.0.0",
+    "node-fetch": "^2.6.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "react-json-view": "^1.21.3",
+    "sass": "^1.49.7",
+    "typescript": "^4.3.2"
+  },
+  "engines": {
+    "npm": ">=7.24.0",
+    "yarn": ">= 1.22.5"
+  }
+}
